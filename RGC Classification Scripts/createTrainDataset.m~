@@ -6,6 +6,7 @@ aD = arborDensities';
 ADresult = [];
 zProfile2 = [];
 n=1;
+area2 = [];
 for i = 1:a
     temp = reshape(aD(i,:),[120, 20 ,20]);
     

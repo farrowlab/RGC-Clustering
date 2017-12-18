@@ -84,6 +84,6 @@ for i = 1:size(zProfile,2)
     zLocation_test5(i,:) = loc(midx5);
 end
 testdata = [zLocation_test1, zWidth_test1, zLocation_test2, zWidth_test2,zLocation_test3, zWidth_test3, zLocation_test4, zWidth_test4,zLocation_test5, zWidth_test5, zMean_test, zVariance_test, area];
-cd('/media/areca_raid/Data');
+cd('/media/areca_raid/Classification Scripts/Data');
 dlmwrite('testdata.txt',testdata);
 end

@@ -6,6 +6,7 @@ aD = arborDensities';
 ADresult = [];
 zProfile2 = [];
 n=1;
+area2 = [];
 for i = 1:a
     temp = reshape(aD(i,:),[120, 20 ,20]);
     
@@ -86,7 +87,7 @@ cd(path1)
 
 labels = getSumbulLabels_corrected;
 
-cd('/media/areca_raid/Classification Scripts/Data');
+cd('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Dataset');
 traindata = [zLocation_train1, zWidth_train1, zLocation_train2, zWidth_train2, zLocation_train3, zWidth_train3, zLocation_train4, zWidth_train4,zLocation_train5, zWidth_train5,zMean_train, zVariance_train,area2, labels];
 dlmwrite('traindata.txt',traindata);   
 end
