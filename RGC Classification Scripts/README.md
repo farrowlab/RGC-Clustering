@@ -26,9 +26,9 @@ Included here are Scripts to Classify Cells based on the 15 cell types from Sumb
 
 - Our data are automatically pulled from the Database file, so any changes there will change the number of cells being classified. 
 
-- Extra Decision Trees Classifier with SMOTE Oversampling is used on the train data, and provide classification result from our data.
+- This classifier is called with a python script called EDTClassifier.py
 
-- This classifier is done with a python script called EDTClassifier.py
+- Extra Trees Classifier with SMOTE Oversampling is used on the train data, and provide classification result from our data. SMOTE is used to balance the undersampled and oversampled classed in Sumbul Dataset. As for the classifier choice, Extra Trees give best training and testing result, but Random Forest Classifier also give good result, and can also be used instead. In fact, it's simple to switch Classifier model using sklearn. Inside the python code are several commented out option that can be used instead.
 
 - Finally, the result is then plotted for inspection, and this is inside the callCheckClassification function
 
