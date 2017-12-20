@@ -10,6 +10,7 @@ callClassifyOurDataQD
 %%%%%%%%%%traindata.txt and testdata.txt will be created%%%%%%%%
 %3) Run Python Script to read train data and create Extra Trees Classifier
 system('python EDTClassifier.py'); %%detect 
+
 %4) Check Results 
 callCheckClassification
 

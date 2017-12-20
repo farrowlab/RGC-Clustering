@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from glmnet import LogitNet
 from sklearn.model_selection import StratifiedKFold
 import pickle
-f = open ('/home/quan/Desktop/ClassificationScripts/NewClassificationParams/traindata.txt','r').readlines()
+f = open ('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Dataset/traindata.txt','r').readlines()
 
 N = len(f) 
 l = [];
@@ -30,7 +30,7 @@ for i in range(0,N):
 data = np.array(l)
 print data.shape
 
-f2 = open('/home/quan/Desktop/ClassificationScripts/NewClassificationParams/OurDataTest.txt','r').readlines()
+f2 = open('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Dataset/OurDataTest.txt','r').readlines()
 N = len(f2) 
 l = [];
 for i in range(0,N):
@@ -92,10 +92,10 @@ for i in range(0,a):
 #	problist.append(maxi)	
 
 from sklearn.externals import joblib
-joblib.dump(model, '/home/quan/Desktop/ClassificationScripts/NewClassificationParams/ExtraTree.pkl')
+joblib.dump(model, '/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/ExtraTree.pkl')
 
-tfile = open('/home/quan/Desktop/ClassificationScripts/NewClassificationParams/classesLABEL.txt','w')
-pfile = open('/home/quan/Desktop/ClassificationScripts/NewClassificationParams/classesPROB.txt','w')
+tfile = open('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/classesLABEL.txt','w')
+pfile = open('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/classesPROB.txt','w')
 for item in classes:
 	for stuff in item:	
 		tfile.write("%s\n" % str(stuff)) 

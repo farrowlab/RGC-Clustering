@@ -187,7 +187,7 @@ end
     
 %% Check Classify
 %labels = load('/home/quan/Desktop/ClassificationScripts/classesLABEL6.txt');
-labels = load('/home/quan/Desktop/ClassificationScripts/NewClassificationParams/classesLABEL.txt')
+labels = load('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/classesLABEL.txt')
 count = 0;
 
 
