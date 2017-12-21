@@ -2,16 +2,17 @@
 # Overview
 Included here are Scripts to Classify Cells based on the 15 cell types from Sumbul
 
-# Step by Step Instruction
+# Basic Usage
 
 - To run the entire process, open Matlab and run the script RunMe.m
 
 - The result will be stored in Results folder, with the labels of each cell contained in a txt file called classesLABEL.txt
 
+- A plot of the stratification profile of cells in different classes will be generated
+
 - A trained model will also be there, and stored as ExtraTree.pkl
 
 - There is also another txt file called classesPROB.txt, saying how confident the algo with its classification. 
-
 
 
 # Details 
