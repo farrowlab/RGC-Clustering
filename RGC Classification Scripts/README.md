@@ -22,7 +22,7 @@ Included here are Scripts to Classify Cells based on the 15 cell types from Sumb
 
 - The function callClassifyOurData creates the Test Data.
 
-- The parameters are chosen to be Location of the 5 peaks and the widths of the 5 peaks obtained from matlab findpeak function, along with the area under curve of the  stratification profile of individual cell.
+- The parameters are chosen to be Location of the 5 peaks and the widths of the 5 peaks obtained from matlab findpeak function, along with the trapezoid area under curve of the stratification profile of individual cell.
 
 - Our data are automatically pulled from the Database file, so any changes there will change the number of cells being classified. 
 
