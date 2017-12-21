@@ -200,13 +200,14 @@ clusterLUT = zeros(30, d);
 SimIndex =  zeros(30, d); %put in decision matrix
 RanIndex = zeros(30,d);
 
+% first cluster, chosen as the orginal cluster to compare
 for K = 1:30
 %K = 3;
 originalCluster = cluster(Link, 'maxclust',K);
 %BB=[94:99 142 153 170 186 201 209 240 246 259 264 285 290 316 318 321 328 354];
 tic
 
-
+% pick out 1 cell at a time for take-one-out method
 parfor i = 1:size(aD,1)
 temp = aD;
 knownCell = aD(i,:);    
@@ -235,25 +236,6 @@ allT=ones(size(myLinkage,1)+1,numel(threshold));
 for kk = 1:numel(threshold)
     % cut the dendrogram at threshold(kk)
     T = cluster(myLinkage,'cutoff',threshold(kk),'criterion','distance');
-%     distance = zeros(max(T),1);
-%     %[S,I] = sort(T,'ascend');
-%     for cnum = 1:max(T)
-%         ClusterIndex = find(T==cnum);
-%         Y = size(ClusterIndex,1);
-%         TempCluster = zeros(Y, size(temp,2));
-%         
-%         for y = 1:Y
-%             TempCluster(y,:) = temp(ClusterIndex(y),:); %
-%         end
-%         if Y == 1
-%             ADMean = TempCluster;
-%         else
-%             ADMean = mean(TempCluster);
-%         end
-%         distance(cnum) = pdist2(knownCell, ADMean, 'euclidean'); 
-%     end
-%     [mindis, groupCellBelongTo] = min(distance);
-%     Tnew = [T; groupCellBelongTo];
     % calculate clustering accuracy metrics
    allT(:,kk) = T; 
    [AR,RI,MI,HI,rS,cS,typeConfusions]=reportConfusionsAndRI(T,oldCluster);
@@ -273,7 +255,7 @@ end
 myRowSplits = rowSplits(pos0); myColumnSplits = columnSplits(pos0);
 T = cluster(myLinkage,'cutoff',th0,'criterion','distance');
 distance = zeros(max(T),1);
-
+% use the take one out cell and determine what cluster it might belong to using the distance metric
 for cnum = 1:max(T)
     ClusterIndex = find(T==cnum);
     Y = size(ClusterIndex,1);
@@ -291,6 +273,7 @@ for cnum = 1:max(T)
 end
 [mindis, groupCellBelongTo] = min(distance);
 
+% get the group cell fits in, and group cell was supposed to be in, and do a comparison
 NewClusterGroupIndex = find(T==groupCellBelongTo);
 OldClusterGroupIndex = find(oldCluster==knownCellId); 
 %     Tnew = [T; groupCellBelongTo];
@@ -305,17 +288,6 @@ end
 
 
 %%%post process
-% option = [];
-% count = 1;
-% for i = 1:30
-%     groupInTest = clusterLUT(i,1);
-%     if size(find(clusterLUT(i,:) ~= groupInTest),2) == 0
-%         option(count) = groupInTest;
-%         count = count + 1;
-%     end
-% end
-% %%%%%%%choose cluster
-% display(option)
 
 Score = [];
 for i = 1:30
@@ -335,9 +307,9 @@ for i = 1:30
 end
 
 
-save("OurDataClusterQDScript_02.mat", "clusterLUT", "Matrix", "SimIndex", "RanIndex");
+save("OurDataClusterQDScript.mat", "clusterLUT", "Matrix", "SimIndex", "RanIndex");
 
-
+%plot a histogram
 histogram(Matrix)
 yt = get(gca,'YTick');
 set(gca,'YTick',yt,'YTickLabel',round(100*yt/size(Matrix,1)))
