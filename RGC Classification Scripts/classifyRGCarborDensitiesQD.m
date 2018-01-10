@@ -278,7 +278,7 @@ cd(path1)
 
 cd('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/');
 traindata = [zLocation_train1, zWidth_train1, zLocation_train2, zWidth_train2, zLocation_train3, zWidth_train3, zLocation_train4, zWidth_train4,zLocation_train5, zWidth_train5,zMean_train, zVariance_train,area2];
-dlmwrite('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/OurDataTest.txt',traindata);   
+dlmwrite('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Dataset/OurDataTest.txt',traindata);   
 
 
 % option = [];
