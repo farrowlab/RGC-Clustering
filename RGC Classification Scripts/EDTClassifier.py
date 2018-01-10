@@ -7,8 +7,8 @@ from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.neural_network import MLPClassifier
+#from sklearn.ensemble import GradientBoostingClassifier
+#from sklearn.neural_network import MLPClassifier
 from sklearn.metrics.pairwise import chi2_kernel
 from sklearn.pipeline import make_pipeline
 from sklearn import preprocessing
