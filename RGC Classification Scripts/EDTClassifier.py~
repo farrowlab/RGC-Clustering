@@ -67,29 +67,15 @@ model = model.fit(X,Y)
 
 classes = list()
 problist = list()
-#pfile = open('prob.txt','w')
 for i in range(0,a):
 	testsubject = testdata[i,:]
 	testsubject = testsubject.reshape(1,-1)
 	c = model.predict(testsubject)
-#	print c 
 	prob = model.predict_proba(testsubject)
-	#maxprob = max(prob)	
-	maxi = 0
 	for item in prob:
-	#	if item >= maxi:
 		problist.append(item)		
-	#		maxi = item
-#		for stuff in item:
-#			if stuff >= maxi:
-#				maxi = stuff
-      #	print maxi
-      # for item in prob:
-      #         pfile.write("%s\t" %str(item))
-      # pfile.write("\n")       	       
-#	classes.append((c,maxi))
+
 	classes.append(c)
-#	problist.append(maxi)	
 
 from sklearn.externals import joblib
 joblib.dump(model, '/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Results/ExtraTree.pkl')
@@ -99,7 +85,6 @@ pfile = open('/media/areca_raid/RGC-Clustering/RGC Classification Scripts/Result
 for item in classes:
 	for stuff in item:	
 		tfile.write("%s\n" % str(stuff)) 
-#	tfile.write("\n")
 
 for item in problist:
 	for stuff in item:
